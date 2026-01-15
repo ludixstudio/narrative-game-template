@@ -2,43 +2,36 @@ package com.example.escolha.data
 
 object RegraTeste {
 
-    fun valorMinimo(
-        personagem: CharacterClass,
-        tipoTeste: TipoTeste
-    ): Int {
-
+    fun getMinimo(personagem: CharacterClass, tipo: TipoTeste): Int {
         return when (personagem) {
 
-            CharacterClass.GUERREIRO -> when (tipoTeste) {
+            CharacterClass.GUERREIRO -> when (tipo) {
                 TipoTeste.FORCA -> 3
-                TipoTeste.DEFESA -> 2
-                TipoTeste.DESTREZA -> 3
-                TipoTeste.MAGIA -> 6
-                TipoTeste.FURTIVIDADE -> 5
-            }
-
-            CharacterClass.ARQUEIRO -> when (tipoTeste) {
-                TipoTeste.DESTREZA -> 2
-                TipoTeste.FURTIVIDADE -> 2
-                TipoTeste.FORCA -> 5
-                TipoTeste.DEFESA -> 3
-                TipoTeste.MAGIA -> 4
-            }
-
-            CharacterClass.MAGO -> when (tipoTeste) {
-                TipoTeste.MAGIA -> 2
-                TipoTeste.DEFESA -> 5
-                TipoTeste.FORCA -> 5
                 TipoTeste.DESTREZA -> 4
-                TipoTeste.FURTIVIDADE -> 4
+                TipoTeste.MAGIA -> 6
+                TipoTeste.DEFESA -> 2
+                else -> 6
             }
 
-            CharacterClass.NECROMANTE -> when (tipoTeste) {
+            CharacterClass.ARQUEIRO -> when (tipo) {
+                TipoTeste.DESTREZA -> 3
+                TipoTeste.FURTIVIDADE -> 2
+                TipoTeste.MAGIA -> 4
+                TipoTeste.FORCA -> 5
+                else -> 5
+            }
+
+            CharacterClass.MAGO -> when (tipo) {
                 TipoTeste.MAGIA -> 2
+                TipoTeste.FORCA -> 5
                 TipoTeste.DEFESA -> 5
+                else -> 4
+            }
+
+            CharacterClass.NECROMANTE -> when (tipo) {
+                TipoTeste.MAGIA -> 2
                 TipoTeste.FORCA -> 6
-                TipoTeste.DESTREZA -> 5
-                TipoTeste.FURTIVIDADE -> 4
+                else -> 4
             }
         }
     }

@@ -3,14 +3,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <!-- Fundo da cena -->
     <ImageView
         android:id="@+id/sceneBackground"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scaleType="centerCrop" />
 
-    <!-- TEXTO CENTRAL (APENAS CAPÍTULO 0) -->
+    <!-- TEXTO CENTRAL (Capítulo 0) -->
     <TextView
         android:id="@+id/sceneTextCenter"
         android:layout_width="match_parent"
@@ -21,21 +20,34 @@
         android:textSize="24sp"
         android:gravity="center"
         android:background="#AA000000"
-        android:lineSpacingExtra="8dp"
         android:visibility="gone" />
 
-    <!-- TEXTO INFERIOR (RESTO DO JOGO) -->
-    <TextView
-        android:id="@+id/sceneTextBottom"
+    <!-- TEXTO INFERIOR (história) -->
+    <LinearLayout
+        android:id="@+id/bottomContainer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
-        android:padding="24dp"
-        android:textColor="#FFFFFF"
-        android:textSize="18sp"
-        android:gravity="start"
+        android:orientation="vertical"
         android:background="#AA000000"
-        android:lineSpacingExtra="6dp"
-        android:visibility="gone" />
+        android:padding="16dp"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/sceneTextBottom"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp"
+            android:lineSpacingExtra="6dp" />
+
+        <LinearLayout
+            android:id="@+id/choicesContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="12dp"
+            android:visibility="gone" />
+    </LinearLayout>
 
 </FrameLayout>

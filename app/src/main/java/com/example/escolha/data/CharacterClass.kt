@@ -6,14 +6,15 @@ enum class CharacterClass(
     val displayName: String,
     val subtitle: String,
     val imageRes: Int,
-    val caracteristicasTexto: String,
-    val golpeFatalTexto: String
+    val caracteristicas: String,
+    val golpeFatal: String
 ) {
+
     GUERREIRO(
-        "Guerreiro",
-        "O Escudo de Aethryn",
-        R.drawable.guerreiro,
-        """
+        displayName = "Guerreiro",
+        subtitle = "O Escudo de Aethryn",
+        imageRes = R.drawable.guerreiro,
+        caracteristicas = """
 GUERREIRO — O Escudo de Aethryn
 
 Perfil
@@ -30,45 +31,45 @@ Magia: 1
 Regras de Dado
 Força física: 3+
 Defesa corpo a corpo: 2+
-Defesa contra magia: 6+
+Defesa contra magia: 6
 Magia simples: impossível
 Magia ofensiva: impossível
 """.trimIndent(),
-        """
+        golpeFatal = """
 Golpe Fatal — Frenesi do Escudo Quebrado
 
 Desbloqueio:
-• 2 sucessos consecutivos em combate
+2 sucessos consecutivos em combate
 
 Execução:
-• Rolar 4+
+Requer rolagem 4+
 
 Efeito:
-• Elimina inimigos comuns
-• Ignora defesa e número
-• Sub-chefes sofrem dano quase mortal
+Elimina todos os inimigos comuns da cena
+Ignora defesa e número de inimigos
+(Sub-chefes e vilão sofrem dano quase mortal)
 
-Sucesso:
-• Fica Ferido
-• Próximos 2 testes exigem +1
-• Mobilidade reduzida
+Se o golpe for bem-sucedido:
+• Guerreiro fica Ferido automaticamente
+• Próximos 2 lançamentos exigem +1
+• Mobilidade narrativa reduzida temporariamente
 
-Falha:
-• Dano severo
-• Estado Crítico
-• Próximo erro pode matar
+Se o golpe falhar:
+• Dano severo imediato
+• Entra em Estado Crítico
+• Próximo erro pode resultar em morte
 """.trimIndent()
     ),
 
     ARQUEIRO(
-        "Arqueiro",
-        "O Olho do Vento",
-        R.drawable.arqueira,
-        """
+        displayName = "Arqueiro",
+        subtitle = "O Olho do Vento",
+        imageRes = R.drawable.arqueira,
+        caracteristicas = """
 ARQUEIRO — O Olho do Vento
 
 Perfil
-Preciso, ágil, estratégico
+Preciso, estratégico, ágil
 Frágil em combate direto
 
 Atributos Base (15)
@@ -80,44 +81,46 @@ Magia: 2
 
 Regras de Dado
 Ataque à distância: 3+
-Furtividade: 2+
+Furtividade / evasão: 2+
 Magia simples: 4+
 Magia ofensiva: 6+
 """.trimIndent(),
-        """
+        golpeFatal = """
 Golpe Fatal — Chuva do Último Fôlego
 
 Desbloqueio:
-• 2 sucessos consecutivos
+2 sucessos consecutivos em combate
 
 Execução:
-• Rolar 4+
+Requer rolagem 4+
 
 Efeito:
-• Elimina inimigos comuns
-• Sub-chefes sofrem dano quase mortal
+Elimina inimigos comuns e alvos prioritários
+(Sub-chefes e vilão sofrem dano quase mortal)
 
-Sucesso:
-• Exaustão extrema
-• Próximos 2 testes +1
+Se o golpe for bem-sucedido:
+• Entra em Exaustão Extrema
+• Próximos 2 lançamentos exigem +1
+• Mobilidade e precisão reduzidas temporariamente
 
-Falha:
-• Dano severo
+Se o golpe falhar:
+• Dano severo imediato
 • Fica Ferido
-• Próximos 2 testes +2
+• Próximos 2 lançamentos exigem +2
+• Nova falha pode resultar em morte
 """.trimIndent()
     ),
 
     MAGO(
-        "Mago",
-        "O Tecelão do Éter",
-        R.drawable.mago,
-        """
+        displayName = "Mago",
+        subtitle = "O Tecelão do Éter",
+        imageRes = R.drawable.mago,
+        caracteristicas = """
 MAGO — O Tecelão do Éter
 
 Perfil
 Mestre da magia arcana
-Fisicamente frágil
+Frágil fisicamente
 
 Atributos Base (15)
 Força: 1
@@ -131,39 +134,44 @@ Magia simples: 2+
 Magia ofensiva: 4+
 Força física: 5+
 Defesa física: 5+
+Resistência mágica: 2+
 """.trimIndent(),
-        """
-Golpe Fatal — Ruptura do Véu
+        golpeFatal = """
+Golpe Fatal — Ruptura do Véu Arcano
 
 Desbloqueio:
-• 2 sucessos consecutivos
+2 sucessos consecutivos em combate
 
 Execução:
-• Rolar 4+
+Requer rolagem 4+
 
 Efeito:
-• Devastação total
+Destruição total da ameaça e do ambiente imediato
+(Sub-chefes e vilão sofrem dano quase mortal)
 
-Sucesso:
-• Esgotamento Arcano
-• Próximos testes mágicos +2
+Se o golpe for bem-sucedido:
+• Entra em Esgotamento Arcano
+• Próximos 2 lançamentos mágicos exigem +2
+• Instabilidade narrativa no ambiente
 
-Falha:
-• Colapso mágico
-• Estado Crítico
+Se o golpe falhar:
+• Dano severo imediato
+• Perda de controle mágico
+• Entra em Estado Crítico Arcano
+• Nova falha mágica pode causar colapso ou morte
 """.trimIndent()
     ),
 
     NECROMANTE(
-        "Necromante",
-        "O Que Ouve os Mortos",
-        R.drawable.necromante,
-        """
+        displayName = "Necromante",
+        subtitle = "O Que Ouve os Mortos",
+        imageRes = R.drawable.necromante,
+        caracteristicas = """
 NECROMANTE — O Que Ouve os Mortos
 
 Perfil
-Controle da morte
-Consequências narrativas pesadas
+Controle sobre morte, sacrifício e corrupção
+Consequências narrativas mais pesadas
 
 Atributos Base (15)
 Força: 1
@@ -173,29 +181,35 @@ Intelecto: 4
 Magia: 6
 
 Regras de Dado
-Magia necromântica: 2+
+Magia necromântica simples: 2+
 Magia de dano: 3+
 Força física: 6+
+Resistência mágica: 2+
+Falhas podem gerar efeitos narrativos adicionais
 """.trimIndent(),
-        """
+        golpeFatal = """
 Golpe Fatal — Pacto da Última Voz
 
 Desbloqueio:
-• 2 sucessos consecutivos
+2 sucessos consecutivos em combate
 
 Execução:
-• Rolar 4+
+Requer rolagem 4+
 
 Efeito:
-• Entidades eliminam inimigos
+Entidades eliminam todos os inimigos comuns
+(Sub-chefes e vilão sofrem dano quase mortal)
 
-Sucesso:
-• Corrupção temporária
+Se o golpe for bem-sucedido (Corrupção – 5 rodadas):
+• Perda temporária de atributo
 • Entidade passa a segui-lo
+• Alteração narrativa futura
 
-Falha:
-• Maldição
-• Possível final sombrio
+Se o golpe falhar:
+• Dano severo imediato
+• Maldição ativa
+• Estado Crítico
+• Possível desvio para final alternativo sombrio
 """.trimIndent()
-    )
+    );
 }

@@ -3,77 +3,90 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <!-- Imagem do personagem -->
+    <!-- IMAGEM DO PERSONAGEM -->
     <ImageView
         android:id="@+id/characterBackground"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scaleType="centerCrop" />
 
-    <!-- Camada inferior -->
+    <!-- CONTEÚDO INFERIOR -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
         android:orientation="vertical"
         android:padding="16dp"
-        android:background="#CC000000">
+        android:background="#AA000000">
 
         <TextView
             android:id="@+id/characterName"
-            android:textSize="22sp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:textColor="#FFFFFF"
+            android:textSize="22sp"
             android:textStyle="bold"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:gravity="center" />
 
         <TextView
             android:id="@+id/characterSubtitle"
-            android:textSize="16sp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:textColor="#CCCCCC"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:textSize="16sp"
+            android:gravity="center"
+            android:layout_marginBottom="12dp" />
 
+        <!-- BOTÕES DE INFO -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:gravity="center"
-            android:layout_marginTop="12dp">
+            android:layout_marginBottom="8dp">
 
             <Button
-                android:id="@+id/btnPrev"
-                android:text="◀"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-
-            <Button
-                android:id="@+id/btnAttributes"
-                android:text="Características"
+                android:id="@+id/btnCharacteristics"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="8dp" />
+                android:text="Características" />
 
             <Button
                 android:id="@+id/btnFatal"
-                android:text="Golpe Fatal"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:text="Golpe Fatal"
+                android:layout_marginStart="12dp" />
+        </LinearLayout>
+
+        <!-- NAVEGAÇÃO -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center">
+
+            <Button
+                android:id="@+id/btnPrev"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="◀" />
+
+            <Button
+                android:id="@+id/btnConfirm"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Escolher"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp" />
 
             <Button
                 android:id="@+id/btnNext"
-                android:text="▶"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="8dp" />
+                android:text="▶" />
         </LinearLayout>
 
-        <Button
-            android:id="@+id/btnConfirm"
-            android:text="Confirmar Escolha"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp" />
     </LinearLayout>
 
 </FrameLayout>
